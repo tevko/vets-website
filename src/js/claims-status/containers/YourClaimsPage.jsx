@@ -165,7 +165,7 @@ class YourClaimsPage extends React.Component {
             <Pagination page={page} pages={pages} onPageSelect={this.changePage}/>
           </div>
         </div>);
-      } else if (!this.props.canAccessClaims && bothRequestsLoaded) {
+      } else if (bothRequestsLoaded) {
         innerContent = <NoClaims/>;
       }
 
