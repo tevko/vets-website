@@ -38,16 +38,11 @@ const sortOptions = [
 ];
 
 class YourClaimsPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.changePage = this.changePage.bind(this);
-    this.handleSort = this.handleSort.bind(this);
-  }
   componentDidMount() {
     document.title = 'Track Claims: Vets.gov';
 
     if (this.props.canAccessClaims) {
-      this.props.getClaims(this.getFilter(this.props));
+      this.props.getClaims(this.getFilter(this.props.route.showClosedClaims));
     }
 
     if (this.props.canAccessAppeals) {
@@ -55,7 +50,7 @@ class YourClaimsPage extends React.Component {
         // Fetch against the new endpoint
         this.props.getAppealsV2();
       } else {
-        this.props.getAppeals(this.getFilter(this.props));
+        this.props.getAppeals(this.getFilter(this.props.route.showClosedClaims));
       }
     }
 
@@ -65,23 +60,28 @@ class YourClaimsPage extends React.Component {
       setUpPage();
     }
   }
+
   componentWillReceiveProps(newProps) {
     if (this.props.route.showClosedClaims !== newProps.route.showClosedClaims) {
-      this.props.filterClaims(this.getFilter(newProps));
+      this.props.filterClaims(this.getFilter(newProps.route.showClosedClaims));
     }
   }
+
   componentDidUpdate(prevProps) {
     if (!this.props.loading && prevProps.loading) {
       setPageFocus();
     }
   }
-  getFilter(props) {
-    return props.route.showClosedClaims ? 'closed' : 'open';
+
+  getFilter(showClosedClaims) {
+    return showClosedClaims ? 'closed' : 'open';
   }
-  handleSort(sortObject) {
+
+  handleSort = (sortObject) => {
     this.props.sortClaims(sortObject.value);
   }
-  changePage(page) {
+
+  changePage = (page) => {
     this.props.changePage(page);
     scrollToTop();
   }
