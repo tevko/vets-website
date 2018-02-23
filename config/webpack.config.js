@@ -63,9 +63,12 @@ const configGenerator = (options) => {
     'redux-thunk',
     'raven-js'
   ];
+
+  // All build types share this base config
   const baseConfig = {
     entry: filesToBuild,
     output: {
+      // This is where the build goes -- it's also where we'll be serving the site from...which makes senes
       path: path.join(__dirname, `../build/${options.buildtype}/generated`),
       publicPath: '/generated/',
       filename: (options.buildtype === 'development') ? '[name].entry.js' : `[name].entry.[chunkhash]-${timestamp}.js`,
@@ -101,12 +104,14 @@ const configGenerator = (options) => {
           }
         },
         {
+          // Why?
           test: /foundation\.js$/,
           use: {
             loader: 'imports-loader?this=>window',
           }
         },
         {
+          // Why?
           test: /modernizrrc/,
           use: {
             loader: 'modernizr-loader'
@@ -168,6 +173,8 @@ const configGenerator = (options) => {
           }
         },
         {
+          // Because we override the TextareaWidget?
+          // But we're excluding node_modules, so......what?
           test: /react-jsonschema-form\/lib\/components\/(widgets|fields\/ObjectField|fields\/ArrayField)/,
           exclude: [
             /widgets\/index\.js/,
@@ -189,9 +196,13 @@ const configGenerator = (options) => {
     plugins: [
       new webpack.DefinePlugin({
         __BUILDTYPE__: JSON.stringify(options.buildtype),
+        // What's __SAMPLE_ENABLED__?
         __SAMPLE_ENABLED__: (process.env.SAMPLE_ENABLED === 'true'),
         'process.env': {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+          // If this is something other than 3000 on your local machine,
+          //  I think you'll have a problem logging in because id.me redirects
+          //  to localhost:3000 directly regardless of this...I think.
           API_PORT: (process.env.API_PORT || 3000),
           WEB_PORT: (process.env.WEB_PORT || 3333),
           API_URL: process.env.API_URL ? JSON.stringify(process.env.API_URL) : null,
@@ -212,7 +223,10 @@ const configGenerator = (options) => {
     ],
   };
 
+  // This whole chunk is dedicated to production and staging
   if (options.buildtype === 'production' || options.buildtype === 'staging') {
+    // How does this sourcemap work? I assume this is the sourcemap we use for
+    //  sentry logs, but what is this magic?
     let sourceMap = 'https://s3-us-gov-west-1.amazonaws.com/staging.vets.gov';
     if (options.buildtype === 'production') {
       sourceMap = 'https://s3-us-gov-west-1.amazonaws.com/www.vets.gov';
@@ -221,6 +235,8 @@ const configGenerator = (options) => {
       append: `\n//# sourceMappingURL=${sourceMap}/generated/[url]`,
       filename: '[file].map',
     }));
+
+    // What are these?
     baseConfig.module.rules.push({
       test: /debug\/PopulateVeteranButton/,
       use: {

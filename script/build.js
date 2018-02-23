@@ -39,6 +39,7 @@ const optionDefinitions = [
   { name: 'public', type: String, defaultValue: null },
 
   // Catch-all for bad arguments.
+  // Is this supposed to say `multiple: true`
   { name: 'unexpected', type: String, multile: true, defaultOption: true },
 ];
 const options = commandLineArgs(optionDefinitions);
@@ -63,6 +64,7 @@ switch (options.buildtype) {
 
   case 'production':
     if (options['no-sanity-check-node-env'] === false) {
+      // Why is this check needed? Why do the NODE_ENV and __BUILD_TYPE__ need to match?
       if (env !== 'prod') {
         throw new Error(`buildtype ${options.buildtype} expects NODE_ENV to be production, not '${process.env.NODE_ENV}'`);
       }
