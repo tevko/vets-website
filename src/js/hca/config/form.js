@@ -15,6 +15,15 @@ import {
 import applicantDescription from '../../common/schemaform/components/ApplicantDescription';
 import PrefillMessage from '../../common/schemaform/save-in-progress/PrefillMessage';
 import MilitaryPrefillMessage from '../../common/schemaform/save-in-progress/MilitaryPrefillMessage';
+import RoutedSavableApp from '../../common/schemaform/save-in-progress/RoutedSavableApp';
+import RoutedSavablePage from '../../common/schemaform/save-in-progress/RoutedSavablePage';
+import RoutedSavableReviewPage from '../../common/schemaform/save-in-progress/RoutedSavableReviewPage';
+import SaveInProgressErrorPage from '../../common/schemaform/save-in-progress/SaveInProgressErrorPage';
+import FormSaved from '../../common/schemaform/save-in-progress/FormSaved';
+import {
+  createSaveInProgressInitialState,
+  saveInProgressReducers
+} from '../../common/schemaform/save-in-progress/reducers';
 
 import GetFormHelp from '../components/GetFormHelp';
 import { validateMatch } from '../../common/schemaform/validation';
@@ -150,6 +159,13 @@ const formConfig = {
   submitErrorText: ErrorMessage,
   title: 'Apply for health care',
   subTitle: 'Form 10-10EZ',
+  savableAppComponent: RoutedSavableApp,
+  savablePageComponent: RoutedSavablePage,
+  savableReviewPageComponent: RoutedSavableReviewPage,
+  savableErrorPageComponent: SaveInProgressErrorPage,
+  formSavedComponent: FormSaved,
+  saveInProgressReducers,
+  createSaveInProgressInitialState,
   getHelp: GetFormHelp,
   defaultDefinitions: {
     date,
