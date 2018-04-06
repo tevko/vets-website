@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { expensesLessThanIncome } from '../../src/js/hca/helpers.jsx';
+import { expensesLessThanIncome } from '../helpers.jsx';
 
 describe('HCA helpers', () => {
   describe('expensesLessThanIncome', () => {

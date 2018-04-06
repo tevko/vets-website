@@ -5,7 +5,7 @@ import sinon from 'sinon';
 import ReactTestUtils from 'react-dom/test-utils';
 
 import { DefinitionTester, submitForm } from '../../../../../test/util/schemaform-utils';
-import { fillDate } from '../../util/unit-helpers';
+import { fillDate } from '../../../../../test/util/unit-helpers';
 import formConfig from '../../config/form';
 
 
