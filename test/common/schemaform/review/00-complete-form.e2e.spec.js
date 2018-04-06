@@ -1,6 +1,6 @@
-const E2eHelpers = require('../../../e2e/e2e-helpers');
-const Timeouts = require('../../../e2e/timeouts.js');
-const HcaHelpers = require('../../../e2e/hca-helpers.js');
+const E2eHelpers = require('../../../../../../test/e2e/e2e-helpers');
+const Timeouts = require('../../../../../../test/e2e/timeouts.js');
+const HcaHelpers = require('../../../../../../test/e2e/hca-helpers.js');
 const testData = require('../../../hca/schema/maximal-test.json');
 
 module.exports = E2eHelpers.createE2eTest(
