@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import SkinDeep from 'skin-deep';
 
 import DemographicField from '../../components/DemographicField';
-import ObjectField from '../../schemaform/fields/ObjectField';
+import ObjectField from '../../../common/schemaform/fields/ObjectField';
 import formConfig from '../../config/form';
 
 describe('hca <DemographicField>', () => {

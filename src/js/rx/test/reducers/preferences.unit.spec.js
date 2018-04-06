@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { makeField } from '../../model/fields';
+import { makeField } from '../../../common/model/fields';
 import preferencesReducer from '../../reducers/preferences';
 
 describe('preferencesducer', () => {

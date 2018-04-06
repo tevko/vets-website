@@ -3,7 +3,7 @@ import SkinDeep from 'skin-deep';
 import { expect } from 'chai';
 
 import UserProfileApp from '../../containers/UserProfileApp';
-import createCommonStore from '../../store';
+import createCommonStore from '../../../../platform/startup/store';
 
 const store = createCommonStore();
 

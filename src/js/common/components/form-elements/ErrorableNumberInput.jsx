@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
 
-import { makeField } from '../../model/fields.js';
+import { makeField } from '../../../common/model/fields.js';
 
 /**
  * A form input with a label that can display error messages.

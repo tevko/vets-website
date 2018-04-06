@@ -4,7 +4,7 @@ import { expect } from 'chai';
 
 import Post911GIBStatusApp from '../../containers/Post911GIBStatusApp.jsx';
 import reducer from '../../reducers/index.js';
-import createCommonStore from '../../store';
+import createCommonStore from '../../../../platform/startup/store';
 
 const store = createCommonStore(reducer);
 

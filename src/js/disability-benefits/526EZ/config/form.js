@@ -3,7 +3,7 @@ import _ from '../../../common/utils/data-utils';
 import fullSchema526EZ from 'vets-json-schema/dist/21-526EZ-schema.json';
 import fileUploadUI from '../../../common/schemaform/definitions/file';
 
-import initialData from '../../../../../test/disability-benefits/526EZ/schema/initialData';
+import initialData from '../../test/526EZ/schema/initialData';
 
 import IntroductionPage from '../components/IntroductionPage';
 import ConfirmationPage from '../containers/ConfirmationPage';

@@ -2,7 +2,7 @@ import React from 'react';
 import SkinDeep from 'skin-deep';
 import { expect } from 'chai';
 
-import { makeField } from '../../model/fields';
+import { makeField } from '../../../common/model/fields';
 import { composeMessage } from '../../config';
 import { Thread } from '../../containers/Thread';
 

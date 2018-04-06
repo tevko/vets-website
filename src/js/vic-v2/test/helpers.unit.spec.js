@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import { mockFetch, resetFetch } from '../util/unit-helpers.js';
+import { mockFetch, resetFetch } from '../../../../test/util/unit-helpers.js';
 
 import fullSchemaVIC from 'vets-json-schema/dist/VIC-schema.json';
-import fullFormConfig from '../../src/js/vic-v2/config/form';
-import { submit, prefillTransformer, transform } from '../../src/js/vic-v2/helpers';
+import fullFormConfig from '../config/form';
+import { submit, prefillTransformer, transform } from '../helpers';
 
 function setFetchResponse(stub, data) {
   const response = new Response();

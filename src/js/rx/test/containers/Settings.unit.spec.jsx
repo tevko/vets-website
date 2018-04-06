@@ -3,7 +3,7 @@ import SkinDeep from 'skin-deep';
 import { expect } from 'chai';
 import 'babel-polyfill';
 
-import { makeField } from '../../model/fields';
+import { makeField } from '../../../common/model/fields';
 import { Settings } from '../../containers/Settings';
 
 const props = {

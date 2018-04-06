@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import moment from 'moment';
 
-import { makeField } from '../../model/fields';
+import { makeField } from '../../../common/model/fields';
 import searchReducer from '../../reducers/search';
 
 import {
