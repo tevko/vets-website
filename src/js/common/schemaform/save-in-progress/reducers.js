@@ -18,6 +18,10 @@ import {
   saveErrors
 } from '../save-in-progress/actions';
 
+import createSchemaFormReducer from 'us-forms-system/lib/state';
+import { createInitialState } from 'us-forms-system/lib/state/helpers';
+import reducers from 'us-forms-system/lib/state/reducers';
+
 export const saveInProgressReducers = {
   [SET_SAVE_FORM_STATUS]: (state, action) => {
     const newState = _.set('savedStatus', action.status, state);
@@ -127,4 +131,16 @@ export function createSaveInProgressInitialState(formConfig, initialState) {
     prefillTransformer: formConfig.prefillTransformer,
     trackingPrefix: formConfig.trackingPrefix
   });
+}
+
+export function createSaveInProgressFormReducer(formConfig) {
+  let formReducers = reducers;
+  let initialState = createInitialState(formConfig);
+
+  if (!formConfig.disableSave) {
+    formReducers = Object.assign({}, formReducers, saveInProgressReducers);
+    initialState = createSaveInProgressInitialState(formConfig, initialState);
+  }
+
+  createSchemaFormReducer(formConfig, initialState, formReducers);
 }
