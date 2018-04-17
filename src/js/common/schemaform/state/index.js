@@ -2,21 +2,21 @@ import {
   createInitialState,
 } from '../state/helpers';
 
-// import {
-//   createSaveInProgressInitialState,
-//   saveInProgressReducers
-// } from '../save-in-progress/reducers';
+import {
+  createSaveInProgressInitialState,
+  saveInProgressReducers
+} from '../save-in-progress/reducers';
 
 import reducers from '../state/reducers';
 
-export default function createSchemaFormReducer(formConfig, initialState = createInitialState(formConfig), formReducers = reducers) {
-  // let initialState = createInitialState(formConfig);
-  // let formReducers = reducers;
+export default function createSchemaFormReducer(formConfig) {
+  let initialState = createInitialState(formConfig);
+  let formReducers = reducers;
 
-  // if (!formConfig.disableSave) {
-  //   formReducers = Object.assign({}, formReducers, saveInProgressReducers);
-  //   initialState = createSaveInProgressInitialState(formConfig, initialState);
-  // }
+  if (!formConfig.disableSave) {
+    formReducers = Object.assign({}, formReducers, saveInProgressReducers);
+    initialState = createSaveInProgressInitialState(formConfig, initialState);
+  }
 
   return (state = initialState, action) => {
     const reducer = formReducers[action.type];
