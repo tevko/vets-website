@@ -227,8 +227,13 @@
     "reselect": "^2.5.4",
     "text-loader": "^0.0.1",
     "url-search-params": "^0.10.0",
+<<<<<<< HEAD
     "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#29ce2919db9327f10cefb71f09f07714f1dc458b",
     "us-forms-system": "https://github.com/department-of-veterans-affairs/us-forms-system.git#46ea3871ca918b8ad86f259bad6341b18e27d365",
+=======
+    "vets-json-schema": "https://github.com/department-of-veterans-affairs/vets-json-schema.git#0eb191c3f84de6580474b0e824ec30edd490011e",
+    "us-forms-system": "https://github.com/department-of-veterans-affairs/us-forms-system.git#d5b09e238d705f8910a6dd655aa5e6b470e945c8",
+>>>>>>> 675a764... Make changes to Form App and RoutedSavableApp
     "webpack-bundle-analyzer": "^2.11.1"
   }
 }

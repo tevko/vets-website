@@ -9991,9 +9991,9 @@ url@^0.11.0, url@~0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-"us-forms-system@https://github.com/department-of-veterans-affairs/us-forms-system.git#46ea3871ca918b8ad86f259bad6341b18e27d365":
+"us-forms-system@https://github.com/department-of-veterans-affairs/us-forms-system.git#d5b09e238d705f8910a6dd655aa5e6b470e945c8":
   version "1.0.0"
-  resolved "https://github.com/department-of-veterans-affairs/us-forms-system.git#46ea3871ca918b8ad86f259bad6341b18e27d365"
+  resolved "https://github.com/department-of-veterans-affairs/us-forms-system.git#d5b09e238d705f8910a6dd655aa5e6b470e945c8"
   dependencies:
     "@department-of-veterans-affairs/react-jsonschema-form" "^1.0.0"
     babel-plugin-dynamic-import-node "^1.2.0"
