@@ -1,0 +1,7 @@
+{
+  "appName": "Direct Deposit Enrollment",
+  "entryFile": "./app-entry.jsx",
+  "entryName": "direct-deposit",
+  "rootUrl": "/direct-deposit",
+  "production": false
+}
