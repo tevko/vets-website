@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 
 import FormApp from 'us-forms-system/lib/containers/FormApp';
 
-// import FormNav from '../components/FormNav';
-// import FormTitle from '../components/FormTitle';
 import {
   LOAD_STATUSES,
   PREFILL_STATUSES,
@@ -183,7 +181,6 @@ class RoutedSavableApp extends React.Component {
   render() {
     const { currentLocation, formConfig, children, loadedStatus } = this.props;
     const trimmedPathname = currentLocation.pathname.replace(/\/$/, '');
-    // const isIntroductionPage = trimmedPathname.endsWith('introduction');
     let content;
     const loadingForm = trimmedPathname.endsWith('resume') || loadedStatus === LOAD_STATUSES.pending;
     if (!formConfig.disableSave && loadingForm && this.props.prefillStatus === LOAD_STATUSES.pending) {
@@ -225,10 +222,3 @@ const mapDispatchToProps = {
 export default withRouter(connect(getSaveInProgressState, mapDispatchToProps)(RoutedSavableApp));
 
 export { RoutedSavableApp };
-
-// {
-//   formConfig.title &&
-//   // If we’re on the introduction page, show the title if we’re actually on the loading screen
-//   (!isIntroductionPage || this.props.loadedStatus !== LOAD_STATUSES.notAttempted) &&
-//     <FormTitle title={formConfig.title} subTitle={formConfig.subTitle}/>
-// }
