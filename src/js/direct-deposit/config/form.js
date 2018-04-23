@@ -13,7 +13,7 @@ import ssnUI from '../../common/schemaform/definitions/ssn';
 import dateUI from '../../common/schemaform/definitions/date';
 import bankAccountUI from '../../common/schemaform/definitions/bankAccount';
 import phoneUI from '../../common/schemaform/definitions/phone';
-import * as address from '../../common/schemaform/definitions/address';
+import * as addressFn from '../../common/schemaform/definitions/address';
 
 // properties for fields pulled from schema
 const {
@@ -27,9 +27,9 @@ const {
   beneficiaryFullName,
   beneficiarySSN,
   beneficiaryVAFileNumber,
-  beneficiaryAddress,
+  // beneficiaryAddress,
   institutionAccount,
-  institutionAddress,
+  // institutionAddress,
   institutionPhone,
   payeePhone
 } = fullSchema.properties;
@@ -42,6 +42,7 @@ const {
   date,
   bankAccount,
   phone
+  // ,address
 } = fullSchema.definitions;
 
 
@@ -65,8 +66,8 @@ const formConfig = {
     phone,
     date,
     ssn,
-    vaFileNumber,
-    address
+    vaFileNumber
+    // ,address
   },
   chapters: {
     veteran: {
@@ -134,7 +135,7 @@ const formConfig = {
             benefitType: {
               'ui:title': 'Type of Benefit'
             },
-            beneficiaryAddress: address.uiSchema('Address of Person Receiving Payment'),
+            beneficiaryAddress: addressFn.uiSchema('Address of Person Receiving Payment'),
             beneficiaryAddressIsNew: {
               'ui:title': 'Check if the above address is new'
             }
@@ -151,7 +152,7 @@ const formConfig = {
               beneficiarySSN,
               beneficiaryVAFileNumber,
               benefitType,
-              beneficiaryAddress: address.schema(fullSchema, true),
+              beneficiaryAddress: addressFn.schema(fullSchema, true),
               beneficiaryAddressIsNew
             }
           }
@@ -167,7 +168,7 @@ const formConfig = {
           uiSchema: {
             institutionAccount: _.merge(bankAccountUI, { 'ui:title': 'Bank Account Information' }),
             institutionName: { 'ui:title': 'Name of Financial Institution' },
-            institutionAddress: address.uiSchema('Address of Financial Institution'),
+            institutionAddress: addressFn.uiSchema('Address of Financial Institution'),
             institutionPhone: _.merge(phoneUI, { 'ui:title': 'Phone Number of Financial Institution' })
           },
           schema: {
@@ -180,7 +181,7 @@ const formConfig = {
             properties: {
               institutionAccount,
               institutionName,
-              institutionAddress: address.schema(fullSchema, true),
+              institutionAddress: addressFn.schema(fullSchema, true),
               institutionPhone
             }
           }
