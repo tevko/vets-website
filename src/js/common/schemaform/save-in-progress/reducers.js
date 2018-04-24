@@ -142,5 +142,5 @@ export function createSaveInProgressFormReducer(formConfig) {
     initialState = createSaveInProgressInitialState(formConfig, initialState);
   }
 
-  createSchemaFormReducer(formConfig, initialState, formReducers);
+  return createSchemaFormReducer(formConfig, initialState, formReducers);
 }
