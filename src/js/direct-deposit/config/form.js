@@ -166,7 +166,18 @@ const formConfig = {
           path: 'financial-info',
           title: '',
           uiSchema: {
-            institutionAccount: _.merge(bankAccountUI, { 'ui:title': 'Bank Account Information' }),
+            institutionAccount: _.merge(bankAccountUI, {
+              accountType: {
+                'ui:title': 'Bank Account Type',
+                'ui:required': (formData) => !formData.institutionAccount.accountType
+              },
+              accountNumber: {
+                'ui:required': (formData) => !formData.institutionAccount.accountNumber
+              },
+              routingNumber: {
+                'ui:required': (formData) => !formData.institutionAccount.routingNumber
+              }
+            }),
             institutionName: { 'ui:title': 'Name of Financial Institution' },
             institutionAddress: addressFn.uiSchema('Address of Financial Institution'),
             institutionPhone: _.merge(phoneUI, { 'ui:title': 'Phone Number of Financial Institution' })
@@ -188,6 +199,7 @@ const formConfig = {
         },
         payee: {
           path: 'payee-contact',
+          title: '',
           uiSchema: {
             payeePhone: {
               'ui:title': 'Payee Phone Number'
