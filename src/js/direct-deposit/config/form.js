@@ -48,7 +48,7 @@ const {
 
 const formConfig = {
   urlPrefix: '/',
-  submitUrl: '/v0/api',
+  submitUrl: '/v0/direct_deposit_enrollments',
   trackingPrefix: 'direct-deposit-',
   introduction: IntroductionPage,
   confirmation: ConfirmationPage,
@@ -116,6 +116,9 @@ const formConfig = {
         beneficiaryInfo: {
           path: 'beneficiary-info',
           title: '',
+          initialData: {
+            beneficiaryAddressIsNew: false
+          },
           uiSchema: {
             beneficiaryFullName: fullNameUI,
             beneficiarySSN: _.merge(ssnUI, {
