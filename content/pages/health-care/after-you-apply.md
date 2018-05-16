@@ -72,7 +72,7 @@ After you’ve applied for VA health care, we’ll send you a letter in the mail
 Contact your local VA medical center or clinic and ask for:
 - The enrollment coordinator, **or**
 - The urgent care clinic, **or**
-- The emergency room 
+- The emergency room <br>
 
 [Find a VA health facility near you](/facilities/).
 
