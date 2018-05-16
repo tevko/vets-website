@@ -72,7 +72,7 @@ After you’ve applied for VA health care, we’ll send you a letter in the mail
 Contact your local VA medical center or clinic and ask for:
 - The enrollment coordinator, **or**
 - The urgent care clinic, **or**
-- The emergency room
+- The emergency room 
 
 [Find a VA health facility near you](/facilities/).
 
@@ -82,7 +82,7 @@ Contact your local VA medical center or clinic and ask for:
 
 #### What if I need help understanding my benefits or accessing services?
 
-If you want to know more about your VA health care benefits, your health care team, and where you’ll go for care, we can help. [Learn more about your VA health care coverage](/health-care/about-va-health-care/).
+If you want to know more about your VA health care benefits, your health care team, and where you’ll go for care, we can help.<br> [Learn more about your VA health care coverage](/health-care/about-va-health-care/).
 
 If you’re signed up for VA health care, you can manage your VA health and benefits online through Vets.gov: <br />
 [Refill your prescriptions](/health-care/prescriptions/). <br />
@@ -97,7 +97,7 @@ If you need help accessing services, call our toll-free hotline at 1-877-222-VET
 
 #### What if I need to update my personal information?
 
-To update your personal information, such as income, address, and insurance, fill out a Health Benefits Update Form (VA Form 10-10EZR). [Download VA Form 10-10EZR](https://www.va.gov/vaforms/medical/pdf/vha-10-10ezr-fill.pdf).
+To update your personal information, such as income, address, and insurance, fill out a Health Benefits Update Form (VA Form 10-10EZR). <br> [Download VA Form 10-10EZR](https://www.va.gov/vaforms/medical/pdf/vha-10-10ezr-fill.pdf).
 
 Mail this form and any supporting materials to:
 
@@ -107,7 +107,7 @@ Health Eligibility Center<br>
 Atlanta, GA 30329<br>
 </p>
 
-You can also get help updating your personal information by visiting your local VA facility. [Find a VA facility near you](/facilities/).
+You can also get help updating your personal information by visiting your local VA facility. <br> [Find a VA facility near you](/facilities/).
 
 <br>
 
@@ -115,4 +115,4 @@ You can also get help updating your personal information by visiting your local 
 
 #### What if my application isn’t approved and I disagree with the decision?
 
-If you disagree with the decision, you can file an appeal. We’ll send you a letter with the reason we’re not approving your application. This letter will include instructions on how to appeal the decision. [Download our “How Do I Appeal?” booklet](https://www.bva.va.gov/docs/Pamphlets/How-Do-I-Appeal-Booklet--508Compliance.pdf).
+If you disagree with the decision, you can file an appeal. We’ll send you a letter with the reason we’re not approving your application. This letter will include instructions on how to appeal the decision. <br> [Download our “How Do I Appeal?” booklet](https://www.bva.va.gov/docs/Pamphlets/How-Do-I-Appeal-Booklet--508Compliance.pdf).
