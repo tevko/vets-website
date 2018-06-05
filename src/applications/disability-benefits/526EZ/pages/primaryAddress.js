@@ -469,6 +469,7 @@ const addressSchema = {
   properties: {
     'view:asyncUpdateSchema': {
       type: 'object',
+      'ui:widget': AsyncUpdateSchemaWidget,
       required: ['country', 'addressLine1'],
       properties: {
         type: {
