@@ -401,6 +401,13 @@ export const militaryPostOfficeTypeLabels = { // TODO: determine whether these a
 const addressUISchema = (addressName, title) => {
   return {
     'view:asyncUpdateSchema': {
+      // Seems we should make a BasicField since this has become a pattern
+      'ui:field': 'StringField',
+      'ui:widget': AsyncUpdateSchemaWidget,
+      'ui:options': {
+        callback: () => {},
+        update: () => {}
+      },
       'ui:title': title,
       type: {
         'ui:title': 'Type',
@@ -469,7 +476,6 @@ const addressSchema = {
   properties: {
     'view:asyncUpdateSchema': {
       type: 'object',
-      'ui:widget': AsyncUpdateSchemaWidget,
       required: ['country', 'addressLine1'],
       properties: {
         type: {
