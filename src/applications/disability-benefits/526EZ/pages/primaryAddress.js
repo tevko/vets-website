@@ -405,8 +405,10 @@ const addressUISchema = (addressName, title) => {
       'ui:field': 'StringField',
       'ui:widget': AsyncUpdateSchemaWidget,
       'ui:options': {
-        callback: () => {},
-        update: () => {}
+        actions: [{
+          callback: () => Promise.resolve({}),
+          update: () => {}
+        }]
       },
       'ui:title': title,
       type: {
