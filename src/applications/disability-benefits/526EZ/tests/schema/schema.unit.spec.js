@@ -7,7 +7,7 @@ import { transform } from '../../helpers';
 import formConfig from '../../config/form';
 import fullSchema526 from 'vets-json-schema/dist/21-526EZ-schema.json';
 
-describe('1995 schema tests', () => {
+describe('21-526EZ schema tests', () => {
   const v = new Validator();
   const files = fs.readdirSync(__dirname);
   files

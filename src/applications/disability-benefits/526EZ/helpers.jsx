@@ -44,8 +44,19 @@ export function flatten(data) {
 }
 
 
+/**
+ * Restructures the data to move properties from the disability array items
+ *  to where they belong in the schema shared with vets-api.
+ */
+function pullFromDisabilities(form) {
+  const newForm = set('data', {}, form);
+  return newForm;
+}
+
+
 export function transform(formConfig, form) {
-  const formData = flatten(transformForSubmit(formConfig, form));
+  // console.log('transform() -- form:', JSON.stringify(form, null, 2));
+  const formData = flatten(transformForSubmit(formConfig, pullFromDisabilities(form)));
   delete formData.prefilled;
   return JSON.stringify({
     disabilityBenefitsClaim: {

@@ -1,50 +1,150 @@
 {
   "data": {
+    "disabilities": [
+      {
+        "additionalDocuments": [
+          {
+            "name": "some-document.pdf",
+            "confirmationCode": "1e06fdc0-e645-4ef3-9095-16795e417ef4"
+          }
+        ],
+        "privateRecords": [
+          {
+            "name": "another-document.pdf",
+            "confirmationCode": "95c5e97b-ea20-44f6-aab8-92caa9531099"
+          }
+        ],
+        "view:uploadPrivateRecords": "yes",
+        "view:privateRecordsChoiceHelp": {},
+        "treatments": [
+          {
+            "treatmentCenterName": "Facility One",
+            "treatmentDateRange": {
+              "from": "2014-04-11",
+              "to": "2015-03-17"
+            }
+          },
+          {
+            "treatmentCenterName": "Facility Two",
+            "treatmentDateRange": {
+              "from": "2015-01-01",
+              "to": "2017-09-25"
+            }
+          }
+        ],
+        "view:selectableEvidenceTypes": {
+          "view:vaMedicalRecords": true,
+          "view:privateMedicalRecords": true,
+          "view:otherEvidence": true
+        },
+        "view:evidenceTypeHelp": {},
+        "diagnosticCode": 5420,
+        "name": "Post traumatic stress disorder",
+        "ratedDisabilityId": "9459392",
+        "ratingDecisionId": "63655",
+        "ratingPercentage": 40,
+        "specialIssues": [
+          {
+            "code": "TRM",
+            "name": "Personal Trauma PTSD"
+          }
+        ],
+        "disabilityActionType": "INCREASE",
+        "view:selected": true
+      },
+      {
+        "additionalDocuments": [
+          {
+            "name": "success-kid.png",
+            "confirmationCode": "84e8d2c5-4b8b-443a-a4e3-84790637a312"
+          }
+        ],
+        "view:uploadPrivateRecords": "no",
+        "view:privateRecords4142Notice": {},
+        "view:privateRecordsChoiceHelp": {},
+        "treatments": [
+          {
+            "treatmentCenterName": "Facility Three",
+            "treatmentDateRange": {
+              "from": "2015-01-16"
+            }
+          },
+          {
+            "treatmentCenterName": "Facility Four",
+            "treatmentDateRange": {
+              "from": "2017-06-16",
+              "to": "2018-01-01"
+            }
+          }
+        ],
+        "view:selectableEvidenceTypes": {
+          "view:vaMedicalRecords": true,
+          "view:privateMedicalRecords": true,
+          "view:otherEvidence": true
+        },
+        "view:evidenceTypeHelp": {},
+        "diagnosticCode": 5678,
+        "name": "Intervertebral disc syndrome",
+        "ratedDisabilityId": "1231231",
+        "ratingPercentage": 0,
+        "ratingDecisionId": "63456",
+        "specialIssues": [],
+        "disabilityActionType": "INCREASE",
+        "view:selected": true
+      }
+    ],
+    "veteran": {
+      "homelessness": {
+        "isHomeless": true,
+        "pointOfContact": {
+          "pointOfContactName": "John Doe",
+          "primaryPhone": "1231231234"
+        }
+      },
+      "mailingAddress": {
+        "country": "USA",
+        "addressLine1": "234 Maple St.",
+        "city": "Detroit",
+        "state": "MI",
+        "zipCode": "234563453"
+      },
+      "primaryPhone": "2342342342",
+      "emailAddress": "test@test.com",
+      "secondaryPhone": "3242342342"
+    },
+    "servicePeriods": [
+      {
+        "serviceBranch": "Army",
+        "dateRange": {
+          "from": "1990-02-02",
+          "to": "2010-03-04"
+        }
+      },
+      {
+        "serviceBranch": "Air Force",
+        "dateRange": {
+          "from": "2016-01-01",
+          "to": "2018-01-01"
+        }
+      }
+    ],
+    "privacyAgreementAccepted": true,
+    "prefilled": true,
     "fullName": {
       "first": "Sally",
       "last": "Alphonse"
     },
     "socialSecurityNumber": "234234234",
-    "vaFileNumber": "234234234",
+    "vaFileNumber": "345345345",
     "gender": "F",
-    "dateOfBirth": "1990-12-12",
-    "treatments": [
-      {
-        "treatmentCenterName": "Local facility",
-        "treatmentCenterCountry": "USA",
-        "treatmentCenterStreet": "23 Oak Lane",
-        "treatmentCenterCity": "Springfield",
-        "treatmentCenterState": "MO",
-        "treatmentCenterPostalCode": "98787",
-        "startTreatmentMonth": 2,
-        "endTreatmentMonth": 2,
-        "startTreatmentDay": 2,
-        "endTreatmentDay": 2,
-        "startTreatmentYear": 2007,
-        "endTreatmentYear": 2008
-      },
-      {
-        "treatmentCenterName": "Local facility",
-        "treatmentCenterCountry": "USA",
-        "treatmentCenterStreet": "23 Oak Lane",
-        "treatmentCenterCity": "Springfield",
-        "treatmentCenterState": "MO",
-        "treatmentCenterPostalCode": "98787",
-        "startTreatmentMonth": 2,
-        "endTreatmentMonth": 2,
-        "startTreatmentDay": 2,
-        "endTreatmentDay": 2,
-        "startTreatmentYear": 2007,
-        "endTreatmentYear": 2008
-      }
-    ],
-    "disabilities": [
-      {
-        "view:uploadPrivateRecords": "yes",
-        "view:vaMedicalRecords": true,
-        "view:privateMedicalRecords": true,
-        "view:otherEvidence": true
-      }
-    ]
+    "dateOfBirth": "1990-04-02",
+    "directDeposit": {
+      "accountType": "CHECKING",
+      "accountNumber": "234234234",
+      "routingNumber": "234234234",
+      "bankName": "Local bank"
+    },
+    "standardClaim": false,
+    "view:fdcWarning": {}
   }
 }
