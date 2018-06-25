@@ -49,60 +49,6 @@ const formConfig = {
         }
       }
     },
-    secondSection: {
-      title: 'School Information',
-      pages: {
-        thirdPage: {
-          path: 'second-section/first-page',
-          title: 'School Information',
-          uiSchema: {
-            test: testUI
-          },
-          schema: {
-            type: 'object',
-            properties: {
-              test
-            }
-          }
-        }
-      }
-    },
-    thirdSection: {
-      title: 'Benefits Used',
-      pages: {
-        thirdPage: {
-          path: 'third-section/first-page',
-          title: 'Benefits Used',
-          uiSchema: {
-            test: testUI
-          },
-          schema: {
-            type: 'object',
-            properties: {
-              test
-            }
-          }
-        }
-      }
-    },
-    fourthSection: {
-      title: 'Issue Description',
-      pages: {
-        firstPage: {
-          path: 'fourth-section/first-page',
-          title: 'Issue Description',
-          uiSchema: {
-            test: testUI
-          },
-          schema: {
-            type: 'object',
-            properties: {
-              test
-            }
-          }
-        }
-      }
-    }
   }
 };
 
