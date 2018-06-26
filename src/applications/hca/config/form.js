@@ -180,10 +180,10 @@ const formConfig = {
           uiSchema: {
             'ui:description': applicantDescription,
             veteranFullName: _.merge(fullNameUI, {
-              stateOfBirth: {
-                'ui:title': 'State',
-                'ui:options': {
-                  labels: stateLabels
+              first: {
+                'ui:errorMessages': {
+                  minLength: 'Please provide a valid name. Must be at least 1 character.',
+                  pattern: 'Please provide a valid name. Must be at least 1 character.'
                 }
               },
               last: {
