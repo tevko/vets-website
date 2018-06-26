@@ -156,7 +156,7 @@ const formConfig = {
   introduction: IntroductionPage,
   confirmation: ConfirmationPage,
   submitErrorText: ErrorMessage,
-  title: 'Apply for health care',
+  title: 'GIB2 Test',
   subTitle: 'Form 10-10EZ',
   footerContent: FormFooter,
   getHelp: GetFormHelp,
@@ -174,16 +174,16 @@ const formConfig = {
       title: 'Veteran Information',
       pages: {
         veteranInformation: {
-          path: 'veteran-information/personal-information',
+          path: 'veteran-information/personal-informations',
           title: 'Veteran information',
           initialData: {},
           uiSchema: {
             'ui:description': applicantDescription,
             veteranFullName: _.merge(fullNameUI, {
-              stateOfBirth: {
-                'ui:title': 'State',
-                'ui:options': {
-                  labels: stateLabels
+              first: {
+                'ui:errorMessages': {
+                  minLength: 'Please provide a valid name. Must be at least 1 character.',
+                  pattern: 'Please provide a valid name. Must be at least 1 character.'
                 }
               },
               last: {

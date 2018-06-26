@@ -8,8 +8,8 @@ import reducer from './reducer';
 import manifest from './manifest.json'; //TODO: manifest file
 
 let rootUrl = manifest.rootUrl;
-if (window.location.pathname.indexOf('healthcare/') >= 0) {
-  rootUrl = rootUrl.replace('health-care/', 'healthcare/');//We'll need to do something here...
+if (window.location.pathname.indexOf('healthcares/') >= 0) {
+  rootUrl = rootUrl.replace('health-cares/', 'healthcares/');//We'll need to do something here...
 }
 
 startApp({
