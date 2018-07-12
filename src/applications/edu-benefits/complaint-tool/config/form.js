@@ -289,22 +289,60 @@ const formConfig = {
             filing: {
               'ui:title': 'I am filing on behalf of:',
               'ui:widget': 'radio',
+              'ui:options': {
+                expandUnderClassNames: 'schemaform-expandUnder-indent'
+              }
+            },
+            serviceAffiliation: {
+              'ui:title': 'Service Affiliation',
+              'ui:widget': 'radio',
+              'ui:options': {
+                hideIf: formData => formData.filing !== 'Myself',
+                expandUnder: 'filing'
+              },
+              'ui:required': formData => formData.filing === 'Myself',
             },
             personalInfo: {
               'ui:options': {
-                hideIf: formData => formData.filing === 'Anonymous'
+                hideIf: formData => formData.filing === 'Anonymous',
               },
+
               first: {
-                'ui:title': 'First Name'
+                'ui:title': 'First Name',
+                'ui:required': formData => formData.filing !== 'Anonymous'
               },
               middle: {
-                'ui:title': 'Middle Name'
+                'ui:title': 'Middle Name',
+                'ui:required': formData => formData.filing !== 'Anonymous'
               },
               last: {
-                'ui:title': 'Last Name'
+                'ui:title': 'Last Name',
+                'ui:required': formData => formData.filing !== 'Anonymous'
               },
               suffix: {
                 'ui:title': 'Suffix'
+              },
+              branch: {
+                'ui:title': 'Branch',
+                'ui:options': {
+                  hideIf: formData => formData.serviceAffiliation !== 'Yes',
+                },
+              },
+              eod: {
+                'ui:title': 'Entered on Duty',
+                'ui:widget': 'date',
+                'ui:options': {
+                  inline: true,
+                  hideIf: formData => formData.serviceAffiliation !== 'Yes'
+                }
+              },
+              rad: {
+                'ui:title': 'Release from Active Duty',
+                'ui:widget': 'date',
+                'ui:options': {
+                  inline: true,
+                  hideIf: formData => formData.serviceAffiliation !== 'Yes'
+                }
               },
               dob: {
                 'ui:title': 'Date of Birth',
@@ -317,6 +355,9 @@ const formConfig = {
           },
           schema: {
             type: 'object',
+            required: [
+              'filing'
+            ],
             properties: {
               filing: {
                 type: 'string',
@@ -326,11 +367,15 @@ const formConfig = {
                   'Anonymous'
                 ]
               },
+              serviceAffiliation: {
+                type: 'string',
+                enum: [
+                  'Yes',
+                  'No'
+                ]
+              },
               personalInfo: {
                 type: 'object',
-                required: [
-                  'filing'
-                ],
                 properties: {
                   first: {
                     type: 'string',
@@ -357,13 +402,27 @@ const formConfig = {
                       'IV'
                     ]
                   },
+                  branch: {
+                    type: 'string',
+                    enum: [
+                      'Army',
+                      'Navy',
+                      'etc.'
+                    ]
+                  },
+                  eod: {
+                    type: 'string'
+                  },
+                  rad: {
+                    type: 'string'
+                  },
                   dob: {
                     type: 'string'
                   }
                 }
               },
 
-            },
+            }
           }
         },
         secondPage: {
@@ -377,8 +436,11 @@ const formConfig = {
             country: {
               'ui:title': 'Country'
             },
-            street_address: {
-              'ui:title': 'Street Address',
+            streetAddress1: {
+              'ui:title': 'Address Line 1',
+            },
+            streetAddress2: {
+              'ui:title': 'Address Line 2',
             },
             city: {
               'ui:title': 'City',
@@ -386,8 +448,8 @@ const formConfig = {
             state: {
               'ui:title': 'State',
             },
-            postal_code: {
-              'ui:title': 'ZIP Code',
+            postalCode: {
+              'ui:title': 'Postal Code',
             },
             email: {
               'ui:title': 'Email',
@@ -402,12 +464,23 @@ const formConfig = {
           },
           schema: {
             type: 'object',
+            required: [
+              'country',
+              'streetAddress1',
+              'city',
+              'state',
+              'postalCode',
+              'email'
+            ],
             properties: {
               country: {
                 type: 'string',
                 'enum': countries
               },
-              street_address: {
+              streetAddress1: {
+                type: 'string'
+              },
+              streetAddress2: {
                 type: 'string'
               },
               city: {
@@ -468,7 +541,7 @@ const formConfig = {
                   'Wyoming'
                 ]
               },
-              postal_code: {
+              postalCode: {
                 type: 'string',
                 maxLength: 10
               },
@@ -478,7 +551,7 @@ const formConfig = {
               phone: {
                 type: 'string',
                 "minLength": 10
-              },
+              }
             }
           }
         }
@@ -512,15 +585,18 @@ const formConfig = {
             study: {
               'ui:title': 'Level of Study'
             },
-            government_tuition: {
+            governmentTuition: {
               'ui:title': 'Government Tuition'
             },
-            pocket_tuition: {
+            pocketTuition: {
               'ui:title': 'Out of Pocket Tuition'
             }
           },
           schema: {
             type: 'object',
+            required: [
+              'view:giBill',
+            ],
             properties: {
               'view:giBill': {
                 type: 'object',
@@ -561,46 +637,8 @@ const formConfig = {
                     type: 'boolean'
                   },
                 }
-              },
-              study: {
-                type: 'string',
-                'enum': [
-                  'Certificate/Diploma',
-                  'Associates',
-                  'Bachelors',
-                  'Graduate/Professional',
-                  'On-the-Job Training/Apprenticeship'
-                ]
-              },
-              government_tuition: {
-                type: 'string',
-                'enum': [
-                  'Less than $1,000',
-                  '$1,000-$4,999',
-                  '$5,000-$9,999',
-                  '$10,000-$19,000',
-                  '$20,000-$29,000',
-                  'More than $30,000'
-                ]
-              },
-              pocket_tuition: {
-                type: 'string',
-                'enum': [
-                  'Less than $1,000',
-                  '$1,000-$4,999',
-                  '$5,000-$9,999',
-                  '$10,000-$19,000',
-                  '$20,000-$29,000',
-                  'More than $30,000'
-                ]
               }
-            },
-            required: [
-              'view:giBill',
-              'study',
-              'government_tuition',
-              'pocket_tuition'
-            ]
+            }
           }
         }
       }
@@ -618,8 +656,11 @@ const formConfig = {
             country: {
               'ui:title': 'Country'
             },
-            street_address: {
-              'ui:title': 'Street Address',
+            streetAddress1: {
+              'ui:title': 'Address Line 1',
+            },
+            streetAddress2: {
+              'ui:title': 'Address Line 2',
             },
             city: {
               'ui:title': 'City',
@@ -627,12 +668,21 @@ const formConfig = {
             state: {
               'ui:title': 'State',
             },
-            postal_code: {
-              'ui:title': 'ZIP Code',
+            postalCode: {
+              'ui:title': 'Postal Code',
             },
           },
           schema: {
             type: 'object',
+            required: [
+              'school',
+              'country',
+              'streetAddress1',
+              'city',
+              'state',
+              'postalCode',
+              'email'
+            ],
             properties: {
               school: {
                 type: 'string'
@@ -642,7 +692,10 @@ const formConfig = {
                 type: 'string',
                 'enum': countries
               },
-              street_address: {
+              streetAddress1: {
+                type: 'string'
+              },
+              streetAddress2: {
                 type: 'string'
               },
               city: {
@@ -703,19 +756,11 @@ const formConfig = {
                   'Wyoming'
                 ]
               },
-              postal_code: {
+              postalCode: {
                 type: 'string',
                 maxLength: 10
-              },
-            },
-            required: [
-              'school',
-              'country',
-              'street_address',
-              'city',
-              'state',
-              'postal_code'
-            ]
+              }
+            }
           }
         }
       }
@@ -756,6 +801,11 @@ const formConfig = {
           },
           schema: {
             type: 'object',
+            required: [
+              'view:issueType',
+              'complaint',
+              'resolution'
+            ],
             properties: {
               'view:issueType': {
                 type: 'object',
@@ -801,12 +851,7 @@ const formConfig = {
               resolution: {
                 type: 'string'
               }
-            },
-            required: [
-              'view:issueType',
-              'complaint',
-              'resolution'
-            ]
+            }
           }
         }
       }
