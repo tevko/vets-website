@@ -290,21 +290,13 @@ const formConfig = {
               'ui:title': 'I am filing on behalf of:',
               'ui:widget': 'radio',
               'ui:options': {
-                expandUnderClassNames: 'schemaform-expandUnder-indent'
+                expandUnderClassNames: 'schemaform-expandUnder'
               }
-            },
-            serviceAffiliation: {
-              'ui:title': 'Service Affiliation',
-              'ui:widget': 'radio',
-              'ui:options': {
-                hideIf: formData => formData.filing !== 'Myself',
-                expandUnder: 'filing'
-              },
-              'ui:required': formData => formData.filing === 'Myself',
             },
             personalInfo: {
               'ui:options': {
                 hideIf: formData => formData.filing === 'Anonymous',
+                expandUnder: 'filing'
               },
 
               first: {
@@ -322,18 +314,33 @@ const formConfig = {
               suffix: {
                 'ui:title': 'Suffix'
               },
+              dob: {
+                'ui:title': 'Date of Birth',
+                'ui:widget': 'date',
+                'ui:options': {
+                  inline: true
+                }
+              },
+              serviceAffiliation: {
+                'ui:title': 'Am I a veteran?',
+                'ui:options': {
+                  expandUnderClassNames: 'schemaform-expandUnder'
+                }
+              }
+            },
+            militaryHistory: {
+              'ui:options': {
+                hideIf: formData => formData.filing === 'Anonymous',
+                expandUnder: 'serviceAffiliation'
+              },
               branch: {
                 'ui:title': 'Branch',
-                'ui:options': {
-                  hideIf: formData => formData.serviceAffiliation !== 'Yes',
-                },
               },
               eod: {
                 'ui:title': 'Entered on Duty',
                 'ui:widget': 'date',
                 'ui:options': {
                   inline: true,
-                  hideIf: formData => formData.serviceAffiliation !== 'Yes'
                 }
               },
               rad: {
@@ -341,17 +348,9 @@ const formConfig = {
                 'ui:widget': 'date',
                 'ui:options': {
                   inline: true,
-                  hideIf: formData => formData.serviceAffiliation !== 'Yes'
-                }
-              },
-              dob: {
-                'ui:title': 'Date of Birth',
-                'ui:widget': 'date',
-                'ui:options': {
-                  inline: true
                 }
               }
-            },
+            }
           },
           schema: {
             type: 'object',
@@ -365,13 +364,6 @@ const formConfig = {
                   'Myself',
                   'Someone Else',
                   'Anonymous'
-                ]
-              },
-              serviceAffiliation: {
-                type: 'string',
-                enum: [
-                  'Yes',
-                  'No'
                 ]
               },
               personalInfo: {
@@ -402,6 +394,21 @@ const formConfig = {
                       'IV'
                     ]
                   },
+                  dob: {
+                    type: 'string'
+                  },
+                  serviceAffiliation: {
+                    type: 'string',
+                    enum: [
+                      'Yes',
+                      'No'
+                    ]
+                  }
+                }
+              },
+              militaryHistory: {
+                type: 'object',
+                properties: {
                   branch: {
                     type: 'string',
                     enum: [
@@ -415,12 +422,9 @@ const formConfig = {
                   },
                   rad: {
                     type: 'string'
-                  },
-                  dob: {
-                    type: 'string'
                   }
                 }
-              },
+              }
 
             }
           }
