@@ -292,43 +292,43 @@ const formConfig = {
               'ui:options': {
                 expandUnderClassNames: 'schemaform-expandUnder',
                 labels: {
-                  1: 'Myself',
-                  2: 'Someone else',
-                  3: 'I want to file my complaint anonymously'
+                  'a': 'Myself',
+                  'b': 'Someone else',
+                  'c': 'I want to file my complaint anonymously'
                 },
                 nestedContent: {
-                  1: 'Only your name will be shared with the school.',
-                  2: 'Only your name will be shared with the school.',
-                  3: 'None of your personal information will be shared outside of the VA.'
+                  'a': 'Only your name will be shared with the school.',
+                  'b': 'Only your name will be shared with the school.',
+                  'c': 'None of your personal information will be shared outside of the VA.'
                 }
               },
             },
             myselfInfo: {
               'ui:options': {
-                hideIf: formData => formData.filing !== 1,
+                hideIf: formData => formData.filing !== 'a',
                 expandUnder: 'filing'
               },
 
               first: {
                 'ui:title': 'Your first name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'c'
               },
               middle: {
                 'ui:title': 'Your middle name',
               },
               last: {
                 'ui:title': 'Your last name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'c'
               },
               suffix: {
                 'ui:title': 'Suffix',
                 'ui:options': {
                   labels: {
-                    1: 'Jr.',
-                    2: 'Sr.',
-                    3: 'II',
-                    4: 'III',
-                    5: 'IV'
+                    'a': 'Jr.',
+                    'b': 'Sr.',
+                    'c': 'II',
+                    'd': 'III',
+                    'e': 'IV'
                   }
                 }
               },
@@ -343,42 +343,42 @@ const formConfig = {
             serviceAffiliation: {
               'ui:title': 'Are you a veteran?',
               'ui:widget': 'radio',
-              'ui:required': formData => formData.filing === 1,
+              'ui:required': formData => formData.filing === 'a',
               'ui:options': {
                 labels: {
-                  1: 'Yes',
-                  2: 'No'
+                  'y': 'Yes',
+                  'n': 'No'
                 },
-                hideIf: formData => formData.filing !== 1,
+                hideIf: formData => formData.filing !== 'a',
                 expandUnderClassNames: 'schemaform-expandUnder'
               }
             },
             someoneInfo: {
               'ui:options': {
-                hideIf: formData => formData.filing !== 2,
+                hideIf: formData => formData.filing !== 'b',
                 expandUnder: 'filing'
               },
 
               first: {
                 'ui:title': 'First Name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'c'
               },
               middle: {
                 'ui:title': 'Middle Name',
               },
               last: {
                 'ui:title': 'Last Name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'c'
               },
               suffix: {
                 'ui:title': 'Suffix',
                 'ui:options': {
                   labels: {
-                    1: 'Jr.',
-                    2: 'Sr.',
-                    3: 'II',
-                    4: 'III',
-                    5: 'IV'
+                    'a': 'Jr.',
+                    'b': 'Sr.',
+                    'c': 'II',
+                    'd': 'III',
+                    'e': 'IV'
                   }
                 }
               },
@@ -392,20 +392,20 @@ const formConfig = {
             },
             militaryHistory: {
               'ui:options': {
-                hideIf: formData => formData.serviceAffiliation !== 1,
+                hideIf: formData => formData.serviceAffiliation !== 'y',
                 expandUnder: 'serviceAffiliation',
               },
               branch: {
                 'ui:title': 'Branch',
-                'ui:required': formData => formData.serviceAffiliation === 1,
+                'ui:required': formData => formData.serviceAffiliation === 'y',
                 'ui:options': {
                   labels: {
-                    1: 'Army',
-                    2: 'Navy',
-                    3: 'Marines',
-                    4: 'Air Force',
-                    5: 'Coast Guard',
-                    6: 'NOAA/PHS'
+                    'a': 'Army',
+                    'b': 'Navy',
+                    'c': 'Marines',
+                    'd': 'Air Force',
+                    'e': 'Coast Guard',
+                    'f': 'NOAA/PHS'
                   }
                 }
               },
@@ -434,9 +434,9 @@ const formConfig = {
               filing: {
                 type: 'string',
                 enum: [
-                  1,
-                  2,
-                  3
+                  'a',
+                  'b',
+                  'c'
                 ]
               },
               myselfInfo: {
@@ -460,11 +460,11 @@ const formConfig = {
                   suffix: {
                     type: 'string',
                     'enum': [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5
+                      'a',
+                      'b',
+                      'c',
+                      'd',
+                      'e'
                     ]
                   },
                   dob: {
@@ -475,8 +475,8 @@ const formConfig = {
               serviceAffiliation: {
                 type: 'string',
                 enum: [
-                  1,
-                  2
+                  'y',
+                  'n'
                 ]
               },
               someoneInfo: {
@@ -500,11 +500,11 @@ const formConfig = {
                   suffix: {
                     type: 'string',
                     'enum': [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5
+                      'a',
+                      'b',
+                      'c',
+                      'd',
+                      'e'
                     ]
                   },
                   dob: {
@@ -517,13 +517,13 @@ const formConfig = {
                 properties: {
                   branch: {
                     type: 'string',
-                    enum: [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5,
-                      6
+                    'enum': [
+                      'a',
+                      'b',
+                      'c',
+                      'd',
+                      'e',
+                      'f'
                     ]
                   },
                   eod: {
