@@ -3,6 +3,7 @@
 import IntroductionPage from '../containers/IntroductionPage';
 import ConfirmationPage from '../containers/ConfirmationPage';
 
+
 // const { } = fullSchema.properties;
 
 // const { } = fullSchema.definitions;
@@ -20,12 +21,12 @@ const formConfig = {
     notFound: 'Please start over to apply for declaration of status of dependents.',
     noAuth: 'Please sign in again to continue your application for declaration of status of dependents.'
   },
-  title: 'Opt Out of Sharing VA Education Benefits Information',
+  title: 'GI Bill School Complaint Tool',
   defaultDefinitions: {
   },
   chapters: {
-    form: {
-      title: 'Form',
+    firstSection: {
+      title: 'Filing Information',
       pages: {
         firstPage: {
           path: 'first-section/first-page',
@@ -36,46 +37,32 @@ const formConfig = {
               'ui:widget': 'radio',
               'ui:options': {
                 expandUnderClassNames: 'schemaform-expandUnder',
-                labels: {
-                  1: 'Myself',
-                  2: 'Someone else',
-                  3: 'I want to file my complaint anonymously'
-                },
                 nestedContent: {
-                  1: 'Only your name will be shared with the school.',
-                  2: 'Only your name will be shared with the school.',
-                  3: 'None of your personal information will be shared outside of the VA.'
+                  'Myself': 'Only your name will be shared with the school.',
+                  'Someone else': 'Only your name will be shared with the school.',
+                  'I want to file my complaint anonymously': 'None of your personal information will be shared outside of the VA.'
                 }
               },
             },
             myselfInfo: {
               'ui:options': {
-                hideIf: formData => formData.filing !== 1,
+                hideIf: formData => formData.filing !== 'Myself',
                 expandUnder: 'filing'
               },
 
               first: {
                 'ui:title': 'Your first name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
               },
               middle: {
                 'ui:title': 'Your middle name',
               },
               last: {
                 'ui:title': 'Your last name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
               },
               suffix: {
                 'ui:title': 'Suffix',
-                'ui:options': {
-                  labels: {
-                    1: 'Jr.',
-                    2: 'Sr.',
-                    3: 'II',
-                    4: 'III',
-                    5: 'IV'
-                  }
-                }
               },
               dob: {
                 'ui:title': 'Date of Birth',
@@ -88,44 +75,31 @@ const formConfig = {
             serviceAffiliation: {
               'ui:title': 'Are you a veteran?',
               'ui:widget': 'radio',
-              'ui:required': formData => formData.filing === 1,
+              'ui:required': formData => formData.filing === 'Myself',
               'ui:options': {
-                labels: {
-                  1: 'Yes',
-                  2: 'No'
-                },
-                hideIf: formData => formData.filing !== 1,
+                hideIf: formData => formData.filing !== 'Myself',
                 expandUnderClassNames: 'schemaform-expandUnder'
               }
             },
             someoneInfo: {
               'ui:options': {
-                hideIf: formData => formData.filing !== 2,
+                hideIf: formData => formData.filing !== 'Someone else',
                 expandUnder: 'filing'
               },
 
               first: {
                 'ui:title': 'First Name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
               },
               middle: {
                 'ui:title': 'Middle Name',
               },
               last: {
                 'ui:title': 'Last Name',
-                'ui:required': formData => formData.filing !== 3
+                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
               },
               suffix: {
                 'ui:title': 'Suffix',
-                'ui:options': {
-                  labels: {
-                    1: 'Jr.',
-                    2: 'Sr.',
-                    3: 'II',
-                    4: 'III',
-                    5: 'IV'
-                  }
-                }
               },
               dob: {
                 'ui:title': 'Date of Birth',
@@ -137,22 +111,12 @@ const formConfig = {
             },
             militaryHistory: {
               'ui:options': {
-                hideIf: formData => formData.serviceAffiliation !== 1,
+                hideIf: formData => formData.serviceAffiliation !== 'Yes',
                 expandUnder: 'serviceAffiliation',
               },
               branch: {
                 'ui:title': 'Branch',
-                'ui:required': formData => formData.serviceAffiliation === 1,
-                'ui:options': {
-                  labels: {
-                    1: 'Army',
-                    2: 'Navy',
-                    3: 'Marines',
-                    4: 'Air Force',
-                    5: 'Coast Guard',
-                    6: 'NOAA/PHS'
-                  }
-                }
+                //'ui:required': formData => formData.serviceAffiliation === 'Yes',
               },
               eod: {
                 'ui:title': 'Service start date',
@@ -168,7 +132,7 @@ const formConfig = {
                   inline: true,
                 }
               }
-            }
+            },
           },
           schema: {
             type: 'object',
@@ -179,9 +143,9 @@ const formConfig = {
               filing: {
                 type: 'string',
                 enum: [
-                  1,
-                  2,
-                  3
+                  'Myself',
+                  'Someone else',
+                  'I want to file my complaint anonymously'
                 ]
               },
               myselfInfo: {
@@ -205,11 +169,11 @@ const formConfig = {
                   suffix: {
                     type: 'string',
                     'enum': [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5
+                      'Jr.',
+                      'Sr.',
+                      'II',
+                      'III',
+                      'IV'
                     ]
                   },
                   dob: {
@@ -220,8 +184,8 @@ const formConfig = {
               serviceAffiliation: {
                 type: 'string',
                 enum: [
-                  1,
-                  2
+                  'Yes',
+                  'No'
                 ]
               },
               someoneInfo: {
@@ -245,11 +209,11 @@ const formConfig = {
                   suffix: {
                     type: 'string',
                     'enum': [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5
+                      'Jr.',
+                      'Sr.',
+                      'II',
+                      'III',
+                      'IV'
                     ]
                   },
                   dob: {
@@ -263,12 +227,12 @@ const formConfig = {
                   branch: {
                     type: 'string',
                     enum: [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5,
-                      6
+                      'Army',
+                      'Navy',
+                      'Marines',
+                      'Air Force',
+                      'Coast Guard',
+                      'NOAA/PHS'
                     ]
                   },
                   eod: {
@@ -279,17 +243,16 @@ const formConfig = {
                   }
                 }
               }
-
             }
           }
         },
         secondPage: {
           depends: [
-            {filing: 1},
-            {filing: 2}
+            {filing: 'Myself'},
+            {filing: 'Someone else'}
           ],
           path: 'first-section/second-page',
-          title: 'Second Page',
+          title: 'Contact Information',
           uiSchema: {
             country: {
               'ui:title': 'Country'
