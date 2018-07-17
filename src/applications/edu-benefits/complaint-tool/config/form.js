@@ -38,8 +38,8 @@ const formConfig = {
               'ui:options': {
                 expandUnderClassNames: 'schemaform-expandUnder',
                 nestedContent: {
-                  'Myself': 'Only your name will be shared with the school.',
-                  'Someone else': 'Only your name will be shared with the school.',
+                  'Myself': '(We\'ll only share your name with the school.)',
+                  'Someone else': '(We\'ll only share your name with the school.)',
                   'I want to file my complaint anonymously': 'None of your personal information will be shared outside of the VA.'
                 }
               },
@@ -52,14 +52,14 @@ const formConfig = {
 
               first: {
                 'ui:title': 'Your first name',
-                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
+                'ui:required': formData => formData.filing === 'Myself'
               },
               middle: {
                 'ui:title': 'Your middle name',
               },
               last: {
                 'ui:title': 'Your last name',
-                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
+                'ui:required': formData => formData.filing === 'Myself'
               },
               suffix: {
                 'ui:title': 'Suffix',
@@ -89,14 +89,14 @@ const formConfig = {
 
               first: {
                 'ui:title': 'First Name',
-                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
+                'ui:required': formData => formData.filing === 'Someone else'
               },
               middle: {
                 'ui:title': 'Middle Name',
               },
               last: {
                 'ui:title': 'Last Name',
-                'ui:required': formData => formData.filing !== 'I want to file my complaint anonymously'
+                'ui:required': formData => formData.filing === 'Someone else'
               },
               suffix: {
                 'ui:title': 'Suffix',
@@ -246,146 +246,6 @@ const formConfig = {
             }
           }
         },
-        secondPage: {
-          depends: [
-            {filing: 'Myself'},
-            {filing: 'Someone else'}
-          ],
-          path: 'first-section/second-page',
-          title: 'Contact Information',
-          uiSchema: {
-            country: {
-              'ui:title': 'Country'
-            },
-            streetAddress1: {
-              'ui:title': 'Address line 1',
-            },
-            streetAddress2: {
-              'ui:title': 'Address line 2',
-            },
-            city: {
-              'ui:title': 'City',
-            },
-            state: {
-              'ui:title': 'State',
-            },
-            postalCode: {
-              'ui:title': 'Postal code',
-            },
-            email: {
-              'ui:title': 'Email',
-              'ui:widget': 'EmailWidget'
-            },
-            emailConfirmation: {
-              'ui:title': 'Re-enter email address',
-              'ui:widget': 'EmailWidget'
-            },
-            phone: {
-              'ui:title': 'Phone number',
-              'ui:options': {
-                "inputType": "tel"
-              }
-            }
-          },
-          schema: {
-            type: 'object',
-            required: [
-              'country',
-              'streetAddress1',
-              'city',
-              'state',
-              'postalCode',
-              'email',
-              'emailConfirmation'
-            ],
-            properties: {
-              country: {
-                type: 'string',
-                'enum': [
-                  'United States'
-                ]
-              },
-              streetAddress1: {
-                type: 'string'
-              },
-              streetAddress2: {
-                type: 'string'
-              },
-              city: {
-                type: 'string'
-              },
-              state: {
-                type: 'string',
-                enum: [
-                  'Alabama',
-                  'Alaska',
-                  'Arizona',
-                  'Arkansas',
-                  'California',
-                  'Colorado',
-                  'Connecticut',
-                  'Delaware',
-                  'Florida',
-                  'Georgia',
-                  'Hawaii',
-                  'Idaho',
-                  'Illinois',
-                  'Indiana',
-                  'Iowa',
-                  'Kansas',
-                  'Kentucky',
-                  'Louisiana',
-                  'Maine',
-                  'Maryland',
-                  'Massachusetts',
-                  'Michigan',
-                  'Minnesota',
-                  'Mississippi',
-                  'Missouri',
-                  'Montana',
-                  'Nebraska',
-                  'Nevada',
-                  'New Hampshire',
-                  'New Jersey',
-                  'New Mexico',
-                  'New York',
-                  'North Carolina',
-                  'North Dakota',
-                  'Ohio',
-                  'Oklahoma',
-                  'Oregon',
-                  'Pennsylvania',
-                  'Rhode Island',
-                  'South Carolina',
-                  'South Dakota',
-                  'Tennessee',
-                  'Texas',
-                  'Utah',
-                  'Vermont',
-                  'Virginia',
-                  'Washington',
-                  'West Virginia',
-                  'Wisconsin',
-                  'Wyoming'
-                ]
-              },
-              postalCode: {
-                type: 'string',
-                maxLength: 10
-              },
-              email: {
-                type: 'string'
-              },
-              emailConfirmation: {
-                type: 'string'
-              },
-              phone: {
-                type: 'string',
-                "minLength": 10
-              }
-            }
-          }
-        }
       }
     }
   }
