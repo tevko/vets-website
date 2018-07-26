@@ -1,10 +1,23 @@
-// import fullSchema from 'vets-json-schema/dist/686-schema.json';
+import fullSchema from 'vets-json-schema/dist/complaint-tool-schema.json';
 
 import IntroductionPage from '../containers/IntroductionPage';
 import ConfirmationPage from '../containers/ConfirmationPage';
 
-// const { } = fullSchema.properties;
+const { educationDetails } = fullSchema.properties;
 
+debugger;
+
+const { school } = educationDetails;
+
+const {
+  name: schoolName,
+  address: schoolAddress,
+  address2: schoolAddress2,
+  city: schoolCity,
+  state: schoolState,
+  country: schoolCountry,
+  postalCode: schoolPostalCode
+} = school;
 // const { } = fullSchema.definitions;
 
 const formConfig = {
@@ -24,19 +37,36 @@ const formConfig = {
   defaultDefinitions: {
   },
   chapters: {
-    form: {
-      title: 'Form',
+    schoolInformation: {
+      title: 'School Information',
       pages: {
-        page1: {
-          path: 'form-page',
-          title: 'First Page',
+        schoolInformation: {
+          path: 'school-information',
+          title: 'School Information',
           uiSchema: {
+            'view:manualSchoolEntry': {
+              'ui:options': {
+                expandUnder: 'view:cannotFindSchool'
+              }
+            }
           },
           schema: {
             type: 'object',
             properties: {
-              name: {
-                type: 'string'
+              'view:cannotFindSchool': {
+                type: 'boolean'
+              },
+              'view:manualSchoolEntry': {
+                type: 'object',
+                properties: {
+                  schoolName,
+                  schoolAddress,
+                  schoolAddress2,
+                  schoolCity,
+                  schoolState,
+                  schoolCountry,
+                  schoolPostalCode
+                }
               }
             }
           }
