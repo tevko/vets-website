@@ -48,15 +48,12 @@ class IntroductionPage extends React.Component {
           onValueChange={v => this.getRecords(v.value)}
           value={{ value: privateRecords }}/>
         <AdditionalInfo
-          triggerText="Which should I choose?"
-          onClick={() => {
-            // recordEvent({
-            //   event: 'profile-navigation',
-            //   'profile-action': 'view-link',
-            //   'profile-section': 'update-personal-information',
-            // }); //NOTE: KEEPING FOR REFERENCE. WILL USE WHEN CONTENT PROVIDED TO THIS SECTION.
-          }}>
-          <p>I do not know what to put here.</p>
+          triggerText="Which should I choose?">
+          <h5>Upload your medical records</h5>
+          <p>If you have an electronic copy of your medical records, uploading your records can speed the review of your claim</p>
+          <p>This works best if you have a fast internet connection and time for a large file upload. Records should be .pdf, .jpg, or .png files.</p>
+          <h5>We get records for you</h5>
+          <p>If you tell us which VA medical center treated you for your condition, we can get your medical reocrds for you. Getting your records may take us some time. This could take us longer to make a decision on your claim.</p>
         </AdditionalInfo>
 
         <button
