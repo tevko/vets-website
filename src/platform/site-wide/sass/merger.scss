@@ -1,10 +1,5 @@
 /* MERGER-specific shame. This is not production ready; proof of concept only */
 
-/* OVERRIDE */
-.panel-bottom-link {
-  border-top: 0 !important; // sorry but it's got to go and I don't have time to do it right
-}
-
 $color-primary-lightest: #e1f3f8;
 
 @import 'iconography';
@@ -57,7 +52,7 @@ article {
   }
 
   .mm-marketing-container {
-    height: 95%;
+    height: 350px;
 
     p {
       margin-top: 5px;
@@ -396,7 +391,7 @@ h3, h4 {
 }
 
 #mega-menu .vetnav-panel {
-  height: 405px;
+  height: 470px;
 }
 
 #vetnav {
