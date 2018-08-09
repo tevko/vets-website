@@ -43,6 +43,15 @@ article {
 
 #mega-menu {
 
+  @include media($medium-large-screen) {
+    .vetnav-panel--submenu:not([hidden]) {
+      h3 {
+        font-family: Source Sans Pro, sans serif;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
   #vetnav-menu, #vetnav {
     margin-top: 0;
   }
