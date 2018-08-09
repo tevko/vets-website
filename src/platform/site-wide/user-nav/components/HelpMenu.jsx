@@ -13,7 +13,7 @@ class HelpMenu extends React.Component {
         <p><a href="https://preview.va.gov/facilities/">Find a VA Location</a></p>
         <p><a href="#">Submit a Help Request</a></p>
         <p><a href="#">Go to VA Help Center</a></p>
-        <p><a href="#">Call Us: </a></p>
+        <p><a href="#">Call Us </a></p>
       </div>
     );
 
