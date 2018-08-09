@@ -55,6 +55,14 @@ article {
   #vetnav-menu, #vetnav {
     margin-top: 0;
   }
+
+  .mm-marketing-container {
+    height: 95%;
+
+    p {
+      margin-top: 5px;
+    }
+  }
 }
 
 #menu-rule {
@@ -388,7 +396,7 @@ h3, h4 {
 }
 
 #mega-menu .vetnav-panel {
-  height: 490px;
+  height: 405px;
 }
 
 #vetnav {
@@ -608,4 +616,12 @@ h3, h4 {
 .va-crisis-line {
   top: 122px;
   z-index: 2;
+}
+
+#vetnav-records-ms {
+  & + div {
+    .column-two h3{
+      visibility: hidden;
+    }
+  }
 }
