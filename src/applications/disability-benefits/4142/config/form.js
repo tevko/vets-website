@@ -20,7 +20,7 @@ import {
 const formConfig = {
   urlPrefix: '/',
   submitUrl: '/v0/api',
-  trackingPrefix: 'private-medical-recores-release-',
+  trackingPrefix: 'private-medical-records-release-',
   introduction: IntroductionPage,
   confirmation: ConfirmationPage,
   formId: '21-4142',

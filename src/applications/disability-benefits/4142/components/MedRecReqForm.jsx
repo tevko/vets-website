@@ -6,6 +6,8 @@ import {
   introActions,
   introSelector,
 } from '../../../../platform/forms/save-in-progress/SaveInProgressIntro';
+import { DateWidget } from 'us-forms-system/lib/js/widgets/DateWidget';
+
 
 class MedRecReqForm extends React.Component {
   constructor(props) {
@@ -19,6 +21,7 @@ class MedRecReqForm extends React.Component {
       primaryPhoneNumber: '',
       firstTreatmendDate: '',
       lastTreatmentDate: '',
+      dob: '',
     };
   }
 
@@ -59,7 +62,13 @@ class MedRecReqForm extends React.Component {
 
   continue = () => {
     // TODO CONTINUE
+  //  this.setState({ provider: })
   };
+
+  addAnotherProvider = () => {
+    this.setState({ addAnotherProvider: true });
+
+  }
 
   render() {
     return (
@@ -83,6 +92,7 @@ class MedRecReqForm extends React.Component {
             aria-controls="first-treatment-date">
             Approximate date of first treatment
           </label>
+          <p>Date of birth: <DateWidget value={this.state.dob} options={{ monthYear: false }}/></p>
           <input
             id="first-treatment-date"
             type="text"
