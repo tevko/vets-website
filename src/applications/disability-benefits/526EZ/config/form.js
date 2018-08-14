@@ -20,6 +20,11 @@ import {
   schema as primaryAddressSchema
 } from '../pages/primaryAddress';
 
+import {
+  uiSchema as treatmentUiSchema,
+  schema as treatmentSchema
+} from '../pages/treatmentSchema'
+
 import treatmentAddressUiSchema from '../pages/treatmentAddress';
 
 import {
@@ -449,57 +454,8 @@ const formConfig = {
           itemFilter: (item) => _.get('view:selected', item),
           arrayPath: 'disabilities',
           depends: (formData, index) => _.get(`disabilities.${index}.view:selectableEvidenceTypes.view:vaMedicalRecords`, formData),
-          uiSchema: {
-            disabilities: {
-              items: {
-                'ui:title': disabilityNameTitle,
-                'ui:description': facilityDescription,
-                treatments: {
-                  'ui:options': {
-                    itemName: 'Facility',
-                    viewField: treatmentView
-                  },
-                  items: {
-                    treatmentCenterName: autoSuggestUiSchema(
-                      'Name of VA medical facility',
-                      queryForFacilities,
-                      {
-                        'ui:options': {
-                          queryForResults: true,
-                          freeInput: true,
-                        },
-                        'ui:errorMessages': {
-                          // If the maxLength changes, we'll want to update the message too
-                          maxLength: 'Please enter a name with fewer than 100 characters.',
-                          pattern: 'Please enter a valid name.'
-                        }
-                      }
-                    ),
-                    treatmentDateRange: dateRangeUI(
-                      'Date of first treatment (This date doesn’t have to be exact.)',
-                      'Date of last treatment (This date doesn’t have to be exact.)',
-                      'Date of last treatment must be after date of first treatment'
-                    ),
-                    treatmentCenterAddress: treatmentAddressUiSchema
-                  }
-                }
-              }
-            }
-          },
-          schema: {
-            type: 'object',
-            properties: {
-              disabilities: {
-                type: 'array',
-                items: {
-                  type: 'object',
-                  properties: {
-                    treatments
-                  }
-                }
-              }
-            }
-          }
+          uiSchema: treatmentUiSchema,
+          schema: treatmentSchema
         },
         privateMedicalRecordsIntro: {
           title: '',

@@ -973,3 +973,11 @@ export const disabilitiesClarification = (
     <strong>Please note:</strong> This list only includes disabilities that we've already rated. It doesn't include any disabilities from claims that are in progress.
   </p>
 );
+
+export const validateAganistServiceDates = (errors, fieldData, formData, schema, errorMessages) => {
+  console.log('errors: ', errors);
+  console.log('fieldData: ', fieldData);
+  console.log('formData: ', formData);
+  console.log('schema: ', schema);
+  console.log('errorMessages: ', errorMessages);
+};
