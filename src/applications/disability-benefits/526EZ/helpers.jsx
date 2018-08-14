@@ -981,7 +981,7 @@ export const disabilitiesClarification = (
 export const validateAganistServiceDates = (errors, fieldData, formData, schema, errorMessages, index) => {
   console.log('errors: ', errors);
   console.log('fieldData: ', fieldData);
-  console.log('formData: ', formData); // would like to get serviceHistory here
+  console.log('formData: ', formData); // would like to access servicePeriods data here
   console.log('schema: ', schema);
   console.log('errorMessages: ', errorMessages);
   console.log('index: ', index);
