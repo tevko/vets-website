@@ -974,10 +974,15 @@ export const disabilitiesClarification = (
   </p>
 );
 
-export const validateAganistServiceDates = (errors, fieldData, formData, schema, errorMessages) => {
+// Ideally, this validator would be able to access top-level formData so that we
+// can see if the fieldData (treatment date) is before or after the earliest 
+// service history start date in the servicePeriods array.
+// This array is in the form config at properties.militaryHistory.servicePeriods
+export const validateAganistServiceDates = (errors, fieldData, formData, schema, errorMessages, index) => {
   console.log('errors: ', errors);
   console.log('fieldData: ', fieldData);
-  console.log('formData: ', formData);
+  console.log('formData: ', formData); // would like to get serviceHistory here
   console.log('schema: ', schema);
   console.log('errorMessages: ', errorMessages);
+  console.log('index: ', index);
 };
