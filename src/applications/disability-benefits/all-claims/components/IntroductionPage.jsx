@@ -8,7 +8,10 @@ import OMBInfo from '@department-of-veterans-affairs/formation/OMBInfo';
 import FormTitle from 'us-forms-system/lib/js/components/FormTitle';
 import SaveInProgressIntro, { introActions, introSelector } from '../../../../platform/forms/save-in-progress/SaveInProgressIntro';
 
+import ItfDisclaimer from './ItfDisclaimer';
+
 class IntroductionPage extends React.Component {
+
   componentDidMount() {
     focusElement('.va-nav-breadcrumbs-list');
   }
@@ -26,6 +29,7 @@ class IntroductionPage extends React.Component {
           retentionPeriod="1 year"
           {...this.props.saveInProgressActions}
           {...this.props.saveInProgress}/>
+        <ItfDisclaimer/>
         <h4>Follow the steps below to apply for increased disability compensation.</h4>
         <div>
           <h4>You’ll be submitting an original disability claim, if both of these are true:</h4>
@@ -114,12 +118,6 @@ class IntroductionPage extends React.Component {
           startText="Start the Disability Compensation Application"
           {...this.props.saveInProgressActions}
           {...this.props.saveInProgress}/>
-        <p>
-          By clicking the button to start the disability application, you’ll declare your
-          intent to file. This will reserve a potential effective date for when you could
-          start getting benefits. You have 1 year from the day you submit your intent to
-          file to complete your application.
-        </p>
         <div className="omb-info--container">
           <OMBInfo resBurden={25} ombNumber="2900-0747" expDate="03/31/2021"/>
         </div>
