@@ -2,6 +2,7 @@
 node_modules/
 build/
 logs/
+lib/
 
 # Files to ignore
 ._*
@@ -22,7 +23,9 @@ coverage
 yalc.lock
 /test-results.xml
 package-lock.json
+.bsb.lock
 
 # Ignore user's editor/IDE prefs
 .vscode/
 .idea/
+.merlin
