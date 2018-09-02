@@ -41,10 +41,3 @@ let isUS = (formData) => (getString("educationDetails.school.view:manualSchoolEn
 let manualSchoolEntryIsNotChecked = (formData) => !manualSchoolEntryIsChecked(formData);
 
 let manualSchoolEntryIsCheckedAndIsUS = (formData) => manualSchoolEntryIsChecked(formData) && isUS(formData);
-
-
-
-
-
-
-

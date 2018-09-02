@@ -18,6 +18,15 @@ import SchoolSelectField from '../../components/SchoolSelectField.jsx';
 import GetFormHelp from '../../components/GetFormHelp';
 
 import { transform, submit, recordApplicantRelationship } from '../helpers';
+import { myself, someoneElse, anonymous, isNotAnonymous,
+  isMyself, isNotMyself, manualSchoolEntryIsChecked, isVeteranOrServiceMember,
+  isUS, manualSchoolEntryIsNotChecked, manualSchoolEntryIsCheckedAndIsUS } from '../helpers.bs';
+
+import Description from '../Description.bs';
+
+function relationshipDescription() {
+  return <Description description="I'm submitting on behalf of..."/>;
+}
 
 const {
   address: applicantAddress,
@@ -57,43 +66,6 @@ const {
   usaPhone,
 } = fullSchema.definitions;
 
-const myself = 'Myself';
-const someoneElse = 'Someone else';
-const anonymous = 'Anonymous';
-
-function isNotAnonymous(formData) {
-  return formData.onBehalfOf !== anonymous;
-}
-
-function isMyself(formData) {
-  return formData.onBehalfOf === myself;
-}
-
-function isNotMyself(formData) {
-  return formData.onBehalfOf === someoneElse || formData.onBehalfOf === anonymous;
-}
-
-function isVeteranOrServiceMember(formData) {
-  const nonServiceMemberOrVeteranAffiliations = ['Spouse', 'Child', 'Other'];
-  return !isNotMyself(formData) && !nonServiceMemberOrVeteranAffiliations.includes(formData.serviceAffiliation); // We are defining this in the negative to prevent prefilled data from being hidden, and therefore deleted by default
-}
-
-function manualSchoolEntryIsChecked(formData) {
-  return get('educationDetails.school.view:searchSchoolSelect.view:manualSchoolEntryChecked', formData);
-}
-
-function manualSchoolEntryIsNotChecked(formData) {
-  return !manualSchoolEntryIsChecked(formData);
-}
-
-function isUS(formData) {
-  return get('educationDetails.school.view:manualSchoolEntry.address.country', formData) === 'United States';
-}
-
-function manualSchoolEntryIsCheckedAndIsUS(formData) {
-  return manualSchoolEntryIsChecked(formData) && isUS(formData);
-}
-
 const formConfig = {
   urlPrefix: '/',
   submitUrl: '/v0/gi_bill_feedbacks',
@@ -128,7 +100,8 @@ const formConfig = {
             'ui:description': recordApplicantRelationship,
             onBehalfOf: {
               'ui:widget': 'radio',
-              'ui:title': 'I’m submitting feedback on behalf of...',
+              'ui:title': 'Applicant relationship',
+              'ui:description': relationshipDescription,
               'ui:options': {
                 nestedContent: {
                   [myself]: () => <div className="usa-alert usa-alert-info no-background-image">We’ll only share your name with the school.</div>,
