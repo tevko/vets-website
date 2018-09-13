@@ -75,9 +75,6 @@ You must put a legal name, service branch, and birth and death year on a headsto
 [Learn more about these memorial items--and see what they look like](https://www.cem.va.gov/cem/docs/factsheets/HeadstoneMarkerMedallion_Brochure.pdf).
 
 
-
-<br>
-
 ### How do I make special arrangements?
 
 We provide memorial headstones and markers for qualified Veterans when their remains are missing, not identified, donated to science, buried at sea, or scattered.
