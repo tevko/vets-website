@@ -18,7 +18,7 @@ The ceremony, including any readings or military honors, takes place at a specia
 
 The family may choose to have military funeral honors. This may include the playing of “Taps,” a rifle detail, a color guard, or uniformed Servicemembers who present the burial flag.
 
-<br>
+
 [Read more about the "Honoring Those Who Served" program](https://www.cem.va.gov/cem/docs/factsheets/honors.pdf).
 
 People attending the ceremony may:
@@ -27,7 +27,7 @@ People attending the ceremony may:
 
 Funerals at Arlington National Cemetery are different. 
 
-<br>
+
 [Learn about Arlington National Cemetery funerals](http://www.arlingtoncemetery.mil/Funerals/About-Funerals).
 
 **Note:** If you requested a headstone, marker, or medallion, we’ll arrange for it to be delivered within 60 days. [Learn about headstones, markers, and medallions](/burials-and-memorials/honor/headstones-markers-medallions/).
