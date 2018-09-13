@@ -42,7 +42,7 @@ You can apply for this benefit if you're representing the deceased Veteran in an
 - A representative of an accredited Veterans Service Organization, **or**
 - An employee of a state or local government whose official responsibilities include serving Veterans, **or**
 - Any person who is legally responsible for making arrangements for unclaimed remains or for details having to do with the deceased’s interment or memorialization, **or**
-- Any individual representing the deceased, if their service ended before April 6, 1917
+- Any individual representing the deceased, if their service ended before April 6, 1917 <br>
 
 **Note:** For memorial headstones and markers that honor the memory of the deceased, the person who applies must be a member of the deceased’s family.
 
@@ -85,6 +85,6 @@ Get help applying for a headstone, marker, niche cover, or medallion by calling 
 
 
 ### What do I need to know about burial in a private cemetery?
-You may have additional costs, restrictions on the type of headstone or marker you can use, and other requirements you should know about when preparing for burial in a private cemetery. 
+You may have additional costs, restrictions on the type of headstone or marker you can use, and other requirements you should know about when preparing for burial in a private cemetery. <br>
 
 [Find out what to ask when planning a burial in a private cemetery](https://www.cem.va.gov/cem/burial_benefits/private_cemetery.asp).
