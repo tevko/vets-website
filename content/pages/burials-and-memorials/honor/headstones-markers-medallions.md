@@ -21,18 +21,16 @@ To honor the military service of a deceased Veteran, we may provide a headstone,
 - Any Veteran buried in an unmarked grave who served for 24 months or longer, or who died while on active duty (including training) after September 7, 1980
 - An eligible spouse or other family member buried in a national cemetery, state/tribal Veterans cemetery, military post cemetery, or military base cemetery
 
-<br>
-
 ### Who can be honored with a medallion?
 
 - Any Veteran who died before November 1, 1990
-- Any Veteran who served on or after April 6, 1917
+- Any Veteran who served on or after April 6,1917
 - Any Veteran whose grave is privately marked
+
+
 **Note**: Spouses and dependents buried in a private cemetery aren't eligible for these memorial items.
 
 </div>
-
-<br>
 
 ### Can I apply for one of these memorial items?
 
@@ -91,4 +89,5 @@ Get help applying for a headstone, marker, niche cover, or medallion by calling 
 
 ### What do I need to know about burial in a private cemetery?
 You may have additional costs, restrictions on the type of headstone or marker you can use, and other requirements you should know about when preparing for burial in a private cemetery. 
+
 [Find out what to ask when planning a burial in a private cemetery](https://www.cem.va.gov/cem/burial_benefits/private_cemetery.asp).
