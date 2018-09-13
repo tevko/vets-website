@@ -29,6 +29,7 @@ You may be able to get burial allowances if you're paying for the burial and fun
 - A surviving child of the Veteran, **or**
 - A parent of the Veteran, **or**
 - The executor or administrator (someone who officially represents the deceased) of the Veteran’s estate
+- The survivor of a legal union (a relationship made formal in a document issued by the State recognizing the union)
 
 <br>
 
@@ -47,6 +48,8 @@ To get this benefit, the Veteran must not have received a dishonorable discharge
 **Note:** VA will also provide an allowance for the cost of transporting a Veteran’s remains for burial in a national cemetery.
 
 </div>
+
+### Is there a time limit for filing?
 
 You must file a claim for a non-service-connected burial allowance within 2 years after the Veteran’s burial or cremation. If a Veteran’s discharge was changed after death from dishonorable to another status, you must file for an allowance claim within 2 years after the discharge update. There's no time limit to file for a service-connected burial, plot, or interment allowance.
 
@@ -69,6 +72,9 @@ You may need a copy of:
 **Note**: The Veteran's family will need to cover the cost of funeral director services.
 
 </div>
+### As a surviving spouse, do I need to file a claim for burial costs?
+
+No. When we receive notice of the Veteran’s death, we automatically pay a set amount to eligible surviving spouses of record to help cover burial and funeral costs. But you'll need to file a claim for additional benefits to help pay for the plot, the cost of interment, or transportation of the remains to the cemetery.
 
 <div id="react-applicationStatus" class="static-page-widget">
   <a class="usa-button-primary va-button-primary" href="/burials-and-memorials/application/530">Apply for Burial Benefits</a>
