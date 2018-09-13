@@ -27,9 +27,9 @@ You may be able to get burial allowances if you're paying for the burial and fun
 
 - The Veteran’s surviving spouse (**Note:** we recognize same-sex marriages), **or**
 - A surviving child of the Veteran, **or**
+- The survivor of a legal union (a relationship made formal in a document issued by the State recognizing the union), **or**
 - A parent of the Veteran, **or**
 - The executor or administrator (someone who officially represents the deceased) of the Veteran’s estate
-- The survivor of a legal union (a relationship made formal in a document issued by the State recognizing the union)
 
 <br>
 
@@ -72,6 +72,7 @@ You may need a copy of:
 **Note**: The Veteran's family will need to cover the cost of funeral director services.
 
 </div>
+
 ### As a surviving spouse, do I need to file a claim for burial costs?
 
 No. When we receive notice of the Veteran’s death, we automatically pay a set amount to eligible surviving spouses of record to help cover burial and funeral costs. But you'll need to file a claim for additional benefits to help pay for the plot, the cost of interment, or transportation of the remains to the cemetery.
