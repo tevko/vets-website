@@ -97,6 +97,14 @@ To apply, you’ll need your (or your sponsor's):
 - **If you’re applying as a spouse, surviving spouse, or unmarried adult child,** you’ll also need your personal information, including your Social Security number.
 - **If you're applying on behalf of someone else,** you'll also need supporting documents showing you have the authority to apply for that person.
 - **If you're applying for an unmarried adult child of a Servicemember or Veteran,** you'll also need to provide supporting documents with information about the child's disability.
+**Note:** If the discharge document is not available, you can request a copy through the National Personnel Records Center. Send your request here:
+
+<p class="va-address-block">
+National Personnel Records Center<br>
+Military Personnel Records Office<br>
+1 Archives Drive<br>
+St. Louis, MO 63138<br>
+</p>
 
 </div>
 
@@ -128,9 +136,15 @@ Please don't send us the originals of your DD214 and other supporting documents 
 
 #### By fax
 
-You can also fax your application to us at 1-855-840-8299.
+You can fax your application to us at 1-855-840-8299.
 
 <br>
+
+#### By email
+You can email your application to us at eligibility.preneed@va.gov.
+
+Also, please remove "also" from the language under "By fax" so that it says:
+"You can fax your application to us at 1-855-840-8299.
 
 ### What if I need help filling out my application?
 
