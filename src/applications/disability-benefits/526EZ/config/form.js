@@ -609,14 +609,16 @@ const formConfig = {
                 },
                 'view:patientAcknowledgment': {
                   'ui:title': 'Patient Acknowledgment',
-                  'ui:description': patientAcknowledgmentText,
                   'ui:options': {
                     expandUnder: 'view:uploadPrivateRecords',
                     expandUnderCondition: 'no',
                   },
-                  'view:acknowledgment': {
-                    'ui:title': 'Patient Acknowledgment',
-                    'ui:required': (formData, index) => (_.get(`disabilities[${index}].view:patientAcknowledgement.view:acknowledgement`, formData.disabilities)),
+                },
+                'view:patientAcknowledgmentText': {
+                  'ui:description': patientAcknowledgmentText,
+                  'ui:options': {
+                    expandUnder: 'view:uploadPrivateRecords',
+                    expandUnderCondition: 'no',
                   },
                 },
                 'view:privateRecordsChoiceHelp': {
@@ -632,20 +634,18 @@ const formConfig = {
                 type: 'array',
                 items: {
                   type: 'object',
-                  required: ['view:uploadPrivateRecords'],
+                  required: ['view:uploadPrivateRecords', 'view:patientAcknowledgment'],
                   properties: {
                     'view:uploadPrivateRecords': {
                       type: 'string',
                       'enum': ['yes', 'no'],
                     },
                     'view:patientAcknowledgment': {
+                      type: 'boolean',
+                    },
+                    'view:patientAcknowledgmentText': {
                       type: 'object',
-                      properties: {
-                        'view:acknowledgment': {
-                          type: 'boolean',
-                          'default': true
-                        }
-                      }
+                      properties: {}
                     },
                     'view:privateRecordsChoiceHelp': {
                       type: 'object',
