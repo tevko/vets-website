@@ -31,7 +31,7 @@ import treatmentAddressUiSchema from '../pages/treatmentAddress';
 
 import {
   uiSchema as paymentInfoUiSchema,
-  schema as paymentInfoSchema
+  schema as paymentInfoSchema,
 } from '../../all-claims/pages/paymentInformation';
 
 import PrivateProviderTreatmentView from '../../4142/components/PrivateProviderTreatmentView';
@@ -68,7 +68,7 @@ import {
   getlimitedConsentTitle,
   validateBooleanIfEvidence,
   privateRecordsChoiceHelp,
-  patientAcknowledgmentText
+  patientAcknowledgmentText,
 } from '../helpers';
 
 import {
@@ -77,7 +77,7 @@ import {
   states,
   stateNames,
   limitedConsentDescription,
-  validateZIP
+  validateZIP,
 } from '../../4142/helpers';
 
 import { hasGuardOrReservePeriod } from '../../all-claims/utils';
@@ -369,25 +369,34 @@ const formConfig = {
               items: {
                 'ui:title': disabilityNameTitle,
                 'view:hasEvidence': {
-                  'ui:title': 'Do you have any evidence that you would like to submit with your claim?',
+                  'ui:title':
+                    'Do you have any evidence that you would like to submit with your claim?',
                   'ui:description': '',
                   'ui:widget': 'yesNo',
                 },
                 'view:selectableEvidenceTypes': {
                   'ui:options': {
                     // Only way to get access to the disability info like 'name' within this nested schema
-                    updateSchema: (form, schema, uiSchema, index) => ({ title: getEvidenceTypesDescription(form, index) }),
+                    updateSchema: (form, schema, uiSchema, index) => ({
+                      title: getEvidenceTypesDescription(form, index),
+                    }),
                     showFieldLabel: true,
                     hideIf: (formData, index) => {
-                      return !_.get(`disabilities[${index}].view:hasEvidence`, formData, true);
-                    }
+                      return !_.get(
+                        `disabilities[${index}].view:hasEvidence`,
+                        formData,
+                        true,
+                      );
+                    },
                   },
-                  'ui:validations': [{
-                    validator: validateBooleanIfEvidence,
-                    options: {
-                      wrappedValidator: validateBooleanGroup
-                    }
-                  }],
+                  'ui:validations': [
+                    {
+                      validator: validateBooleanIfEvidence,
+                      options: {
+                        wrappedValidator: validateBooleanGroup,
+                      },
+                    },
+                  ],
                   'ui:errorMessages': {
                     atLeastOne:
                       'Please select at least one type of supporting evidence',
@@ -399,7 +408,7 @@ const formConfig = {
                     'ui:title': 'Private medical records',
                   },
                   'view:otherEvidence': {
-                    'ui:title': 'Lay statements or other evidence'
+                    'ui:title': 'Lay statements or other evidence',
                   },
                 },
                 'view:evidenceTypeHelp': {
@@ -418,7 +427,7 @@ const formConfig = {
                   properties: {
                     'view:hasEvidence': {
                       type: 'boolean',
-                      'default': true
+                      'default': true,
                     },
                     'view:selectableEvidenceTypes': {
                       type: 'object',
@@ -617,7 +626,13 @@ const formConfig = {
                   },
                   'view:acknowledgment': {
                     'ui:title': 'Patient Acknowledgment',
-                    'ui:required': (formData, index) => (_.get(`disabilities[${index}].view:patientAcknowledgement.view:acknowledgement`, formData.disabilities)),
+                    'ui:required': (formData, index) =>
+                      _.get(
+                        `disabilities[${
+                          index
+                        }].view:patientAcknowledgement.view:acknowledgement`,
+                        formData.disabilities,
+                      ),
                   },
                 },
                 'view:privateRecordsChoiceHelp': {
@@ -644,15 +659,54 @@ const formConfig = {
                       properties: {
                         'view:acknowledgment': {
                           type: 'boolean',
-                          'default': true
-                        }
-                      }
+                          'default': true,
+                        },
+                      },
                     },
                     'view:privateRecordsChoiceHelp': {
                       type: 'object',
                       properties: {},
-                    }
+                    },
                   },
+                },
+              },
+            },
+          },
+        },
+        falseAcknowledgment: {
+          title:
+            'Please hit Back button and select Patient Acknowledgment to continue',
+          path: 'supporting-evidence/:index/patientAcknowledgment',
+          showPagePerItem: true,
+          itemFilter: item =>
+            _.get('view:hasEvidence', item) && _.get('view:selected', item),
+          arrayPath: 'disabilities',
+          depends: (formData, index) => {
+            const falseAcknowledgment =
+              _.get(
+                `disabilities.${
+                  index
+                }.view:patientAcknowledgment.view:acknowledgment`,
+                formData,
+              ) === false;
+            return falseAcknowledgment;
+          },
+          uiSchema: {
+            disabilities: {
+              items: {
+                'ui:title':
+                  'Please hit Back button and select Patient Acknowledgment to continue',
+              },
+            },
+          },
+          schema: {
+            type: 'object',
+            properties: {
+              disabilities: {
+                type: 'array',
+                items: {
+                  type: 'object',
+                  properties: {},
                 },
               },
             },
@@ -665,6 +719,13 @@ const formConfig = {
           itemFilter: item => _.get('view:selected', item),
           arrayPath: 'disabilities',
           depends: (formData, index) => {
+            const acknowledgment =
+              _.get(
+                `disabilities.${
+                  index
+                }.view:patientAcknowledgment.view:acknowledgment`,
+                formData,
+              ) === true;
             const hasRecords = _.get(
               `disabilities.${
                 index
@@ -676,7 +737,7 @@ const formConfig = {
                 `disabilities.${index}.view:uploadPrivateRecords`,
                 formData,
               ) === 'no';
-            return hasRecords && requestsRecords;
+            return hasRecords && requestsRecords && acknowledgment;
           },
           uiSchema: {
             disabilities: {
@@ -686,8 +747,10 @@ const formConfig = {
                 limitedConsent: {
                   'ui:options': {
                     // Only way to get access to the disability info like 'name' within this nested schema. Similar to ln 381
-                    updateSchema: (form, schema, uiSchema, index) => ({ title: getlimitedConsentTitle(form, index) })
-                  }
+                    updateSchema: (form, schema, uiSchema, index) => ({
+                      title: getlimitedConsentTitle(form, index),
+                    }),
+                  },
                 },
                 'view:privateRecordsChoiceHelp': {
                   'ui:description': limitedConsentDescription,
@@ -811,8 +874,7 @@ const formConfig = {
                                 country: {
                                   type: 'string',
                                   'enum': countries,
-                                  'default': 'USA'
-
+                                  'default': 'USA',
                                 },
                                 state: {
                                   type: 'string',
@@ -1019,7 +1081,8 @@ const formConfig = {
           title: 'Summary of evidence',
           path: 'supporting-evidence/:index/evidence-summary',
           showPagePerItem: true,
-          itemFilter: (item) => (_.get('view:hasEvidence', item) && _.get('view:selected', item)),
+          itemFilter: item =>
+            _.get('view:hasEvidence', item) && _.get('view:selected', item),
           arrayPath: 'disabilities',
           uiSchema: {
             disabilities: {
