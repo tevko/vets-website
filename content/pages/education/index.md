@@ -1,11 +1,11 @@
 ---
 layout: page-breadcrumbs.html
 template: level2-index
-title: Education Benefits
-display_title: Education
+title: Education and Training Benefits
+display_title: Education and Training
 permalink: /education/index.html
 plainlanguage: 12-02-16 certified in compliance with the Plain Writing Act
-description: Find out which VA education benefits you may qualify for through the GI Bill and other educational assistance programs—and start your online application today.
+description: Find out which VA education and training benefits you may qualify for through the GI Bill and other educational assistance programs—and start your online application today.
 widgets:
   - root: react-applicationStatus
     timeout: 20
@@ -18,7 +18,7 @@ majorlinks:
       title: Eligibility
       description: Find out if you qualify for VA education benefits through the GI Bill program and other educational assistance programs.
     - url: /education/apply/
-      title: Application Process
+      title: How to Apply
       description: Apply online now, or find out how to apply in person or by mail.
   - heading: Learn about Educational Assistance Programs
     links:
